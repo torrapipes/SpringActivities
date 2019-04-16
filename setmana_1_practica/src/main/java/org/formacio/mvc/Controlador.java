@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 @Controller
 public interface Controlador {
 
+	
 	int nombreAlumnes(ServeiAlumnat servei);
+	
 	
 }
