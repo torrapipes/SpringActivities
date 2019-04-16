@@ -1,16 +1,19 @@
 package org.formacio.component;
 
+import javax.annotation.PostConstruct;
+
+import org.formacio.mvc.Controlador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ServeiAlumnat {
+public class ServeiAlumnat implements Controlador {
 
 	
 	@Autowired
 	private RepositoriAlumnesMemoria repositori;
 	
-	@Autowired
+	@PostConstruct
 	public void init() {
 		
 		this.repositori.altaAlumne(1, "Antonia");
@@ -40,5 +43,15 @@ public class ServeiAlumnat {
 		}
 		
 	}
+
+	@Override
+	public int nombreAlumnes(ServeiAlumnat servei) {
+		
+		return repositori.llistaAlumnes().size();
+		
+	}
+	
+	
+	
 	
 }
