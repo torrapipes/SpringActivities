@@ -1,10 +1,13 @@
 package org.formacio.component;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ServeiAlumnat {
 
+	@Autowired
+	private RepositoriAlumnesMemoria repositori;
 	
 	/**
 	 * ha de donar d'alta a la base de dades d'alumnes l'alumne indicat amb 
@@ -14,7 +17,15 @@ public class ServeiAlumnat {
 	 */
 
 	public boolean matricula (int id, String alumne) {
-		return true;
+		
+		
+		if(alumne == null) {
+			return false;
+		}else {
+			repositori.altaAlumne(id, alumne);
+			return true;
+		}
+		
 	}
 	
 }
