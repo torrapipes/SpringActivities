@@ -6,8 +6,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class ServeiAlumnat {
 
+	
 	@Autowired
 	private RepositoriAlumnesMemoria repositori;
+	
+	@Autowired
+	public void init() {
+		
+		this.repositori.altaAlumne(1, "Antonia");
+		this.repositori.altaAlumne(2, "Joan");
+		
+	}
 	
 	/**
 	 * ha de donar d'alta a la base de dades d'alumnes l'alumne indicat amb 
@@ -20,10 +29,14 @@ public class ServeiAlumnat {
 		
 		
 		if(alumne == null) {
+			
 			return false;
+			
 		}else {
+			
 			repositori.altaAlumne(id, alumne);
 			return true;
+			
 		}
 		
 	}
