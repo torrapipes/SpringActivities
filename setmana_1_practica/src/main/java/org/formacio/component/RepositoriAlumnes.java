@@ -2,6 +2,7 @@ package org.formacio.component;
 
 import java.util.Collection;
 
+
 public interface RepositoriAlumnes {
 
 	String obteAlumne(int id);
