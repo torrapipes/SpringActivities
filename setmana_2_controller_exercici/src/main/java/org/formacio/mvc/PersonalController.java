@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+@Controller
+@RequestMapping(path="/personal")
 public class PersonalController {
 
 	// no toqueu la declaracio de baseDeDades ni el metode getBaseDeDades
@@ -20,4 +25,11 @@ public class PersonalController {
 	}
 
 	// Poseu a partir d'aqui els vostre metodes
+	
+	@RequestMapping(path="/info")
+	@ResponseBody
+	public String info() {
+		return "Hi ha " + this.getBaseDeDades().size() + " persones";
+	}
+	
 }
