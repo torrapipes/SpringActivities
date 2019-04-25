@@ -5,6 +5,7 @@ import javax.annotation.PostConstruct;
 import org.formacio.mvc.Controlador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Component
 public class ServeiAlumnat implements Controlador {
@@ -47,6 +48,7 @@ public class ServeiAlumnat implements Controlador {
 
 	
 	@Override
+	@RequestMapping("/alumnes")
 	public int nombreAlumnes(ServeiAlumnat servei) {
 		
 		return repositori.llistaAlumnes().size();
