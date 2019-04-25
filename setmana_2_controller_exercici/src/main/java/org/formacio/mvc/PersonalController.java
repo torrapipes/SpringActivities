@@ -32,4 +32,10 @@ public class PersonalController {
 		return "Hi ha " + this.getBaseDeDades().size() + " persones";
 	}
 	
+	@RequestMapping(path="/consulta")
+	@ResponseBody
+	public String obtenirNom (int index) {
+		return this.getBaseDeDades().get(index);
+	}
+	
 }
