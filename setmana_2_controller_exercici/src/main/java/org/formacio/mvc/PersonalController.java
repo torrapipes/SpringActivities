@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -44,6 +45,22 @@ public class PersonalController {
 	@ResponseBody
 	public String obtenirNomAmbPath(@PathVariable int id) {
 		return this.getBaseDeDades().get(id);
+	}
+	
+	@RequestMapping(path="/afegir", method=RequestMethod.POST)
+	@ResponseBody
+	public String afegirPersona(@RequestParam(name="nom", required=true) String nom) {
+		
+		if (this.getBaseDeDades().add(nom)) {
+			
+			return "ok";
+			
+		}else {
+			
+			return "not ok";
+			
+		}
+
 	}
 
 }
