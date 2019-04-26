@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -34,7 +35,7 @@ public class PersonalController {
 	
 	@RequestMapping(path="/consulta")
 	@ResponseBody
-	public String obtenirNom (int id) {
+	public String obtenirNom (@RequestParam(name="id", required=false, defaultValue="0") int id) {
 		return this.getBaseDeDades().get(id);
 	}
 	
