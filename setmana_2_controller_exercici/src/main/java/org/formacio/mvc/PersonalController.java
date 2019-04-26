@@ -34,8 +34,9 @@ public class PersonalController {
 	
 	@RequestMapping(path="/consulta")
 	@ResponseBody
-	public String obtenirNom (int index) {
-		return this.getBaseDeDades().get(index);
+	public String obtenirNom (int id) {
+		return this.getBaseDeDades().get(id);
 	}
 	
+
 }
