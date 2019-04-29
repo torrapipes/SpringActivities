@@ -84,7 +84,7 @@ public class PracticaSetmana2ApplicationTests {
 
 
 	/**
-	 * Feis, sense espatllar res del que s'ha fet anteriorment, que la si l'id no existeix, retorni un 404
+	 * Feis, sense espatllar res del que s'ha fet anteriorment, que si l'id no existeix, retorni un 404
 	 */
 	@Test
 	public void test_error_404() throws Exception {

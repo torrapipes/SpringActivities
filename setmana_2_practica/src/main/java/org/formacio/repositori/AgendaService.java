@@ -4,10 +4,12 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import org.springframework.stereotype.Service;
 
 @Service
+@XmlRootElement
 public class AgendaService {
 
 	private Map<String, Persona> bbdd = new LinkedHashMap<>();
