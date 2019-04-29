@@ -1,5 +1,7 @@
 package org.formacio.mvc;
 
+import java.awt.PageAttributes.MediaType;
+
 import org.formacio.repositori.AgendaService;
 import org.formacio.repositori.Persona;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +27,15 @@ public class Controlador {
 	
 	@RequestMapping(path="/telefon")
 	@ResponseBody
-	public String getNumeroTelefon(@RequestParam(name="id", required=true, defaultValue="ant") String id) {
+	public String recuperaNumeroTelefon(@RequestParam(name="id", required=true, defaultValue="ant") String id) {
 		return agend.recupera(id).getTelefon();
 	}
 	
 	
-	
+	@RequestMapping(path="/contacte/{id}")
+	@ResponseBody
+	public Persona recuperaPersona(@RequestParam(name="id", required=true, defaultValue="ant") String id) {
+		return agend.recupera(id);
+	}
 	
 }
