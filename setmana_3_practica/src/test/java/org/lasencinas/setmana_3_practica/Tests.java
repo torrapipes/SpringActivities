@@ -5,6 +5,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import org.springframework.http.MediaType;
+
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,6 +30,18 @@ public class Tests {
 		this.mockMvc.perform(get("/hello")).andDo(print()).andExpect(status().isOk())
 				.andExpect(content().string(equalTo("Hii")));
 	}
+	
+	
+	@Test
+    public void getAllTopicsTest() throws Exception {
+        mockMvc.perform(get("/topics").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().json("[{id : 'spring', name : 'Spring Framework', description : " +
+                        "'Spring Framework Description'}, " +
+                        "{id : 'java', name : 'Core Java', description : 'Core Java Description'}, " +
+                        "{id : 'javascript', 'name' : 'JavaScript', 'description' : 'JavaScript Description'}]"));
+    }
 	
 	
 
