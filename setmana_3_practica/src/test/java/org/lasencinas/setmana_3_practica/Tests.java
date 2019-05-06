@@ -44,5 +44,12 @@ public class Tests {
     }
 	
 	
+	@Test
+	public void getTopicTest() throws Exception {
+		mockMvc.perform(get("/topics/java").accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8));
+	}
+	
 
 }
