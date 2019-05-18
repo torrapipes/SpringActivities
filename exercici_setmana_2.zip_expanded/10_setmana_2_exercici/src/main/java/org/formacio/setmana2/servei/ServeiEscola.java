@@ -1,10 +1,14 @@
 package org.formacio.setmana2.servei;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.formacio.setmana2.domini.Matricula;
 import org.formacio.setmana2.repositori.EdatIncorrecteException;
+import org.formacio.setmana2.repositori.RepositoriEscola;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ServeiEscola {
 
 	
@@ -14,6 +18,11 @@ public class ServeiEscola {
 	 * L'excepcio EdatIncorrecteException no s'ha de capturar. S'ha de propagar cap el client
 	 */
 	public List<Matricula> apunta (String curs, List<String> alumnes) throws EdatIncorrecteException {
-		return null;
+		RepositoriEscola repo = new RepositoriEscola();
+		List<Matricula> listaMat = new ArrayList<Matricula>();
+		for (String alumne : alumnes) {
+			listaMat.add(repo.apunta(alumne, curs));
+		}
+		return listaMat;
     }
 }

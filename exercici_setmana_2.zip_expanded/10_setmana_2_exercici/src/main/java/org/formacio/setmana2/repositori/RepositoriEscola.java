@@ -33,13 +33,20 @@ public class RepositoriEscola {
 	
 	public Matricula apunta (String alumne, String curs) throws EdatIncorrecteException {
 		
-		Matricula mat = new Matricula();
-		mat.setAlumne(carregaAlumne(alumne));
-		mat.setCurs(carregaCurs(curs));
-		em.persist(mat);
-		return mat;
+		if(carregaAlumne(alumne).getEdat() > carregaCurs(curs).getEdatMinima()) {
+			Matricula mat = new Matricula();
+			mat.setAlumne(carregaAlumne(alumne));
+			mat.setCurs(carregaCurs(curs));
+			em.persist(mat);
+			return mat;
+		} else {
+			throw new EdatIncorrecteException();
+		}
 		
 	}
+	
+	
+	
 	
 	
 	
